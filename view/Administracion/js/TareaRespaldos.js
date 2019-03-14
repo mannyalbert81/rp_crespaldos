@@ -120,6 +120,10 @@ function AgregarTarea()
 				.done(function(x) {
 					console.log(x);
 					cargarTareas();
+					var select = document.getElementById("id_tarea");
+					select.options[select.options.length] = new Option(x,x);
+					var select1 = document.getElementById("id_tarea1");
+					select1.options[select1.options.length] = new Option(x,x);					
 				    $("#nombre_bd1").val("");
 					$("#file_path1").val("");
 					$("#hora_plan1").val("");
@@ -169,7 +173,7 @@ function EliminarTarea()
 			    },
 			})
 			.done(function(x) {
-				console.log(x);
+				
 				cargarTareas();
 				$("#id_tarea1 option[value='"+idtarea+"']").remove();
 				$("#id_tarea option[value='"+idtarea+"']").remove();

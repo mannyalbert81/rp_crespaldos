@@ -96,19 +96,8 @@
         <input type="text" data-inputmask="'mask': 'h:s:s'" class="form-control" id="hora_plan"  name="hora_plan" value="">
       
             </div>
-            </div>            
-        
-        <br>
-        <br>
-       
-       
-			    <div class="col-xs-12 col-md-12 col-md-12 " style="margin-top:15px;  text-align: center; ">
-                	   		    <div class="form-group" id="bt_Editar">
-            	                  <button  id="Editar" name="Editar" class="btn btn-success" onclick="EditarTarea()">Editar</button>
-        	                    </div>
-    	        		    </div>
-    	        		    
-    	        		    <div id="Agregar_div" style ="display:none">
+            </div> 
+            	    <div id="Agregar_div" style ="display:none">
             								  <div class="col-xs-12 col-md-3 col-lg-3">
         <label for="nombre_bd1" class="control-label">Nombre BD:</label>
         <select name="nombre_bd1" id="nombre_bd1"  class="form-control" >
@@ -127,16 +116,9 @@
         <input type="text" data-inputmask="'mask': 'h:s:s'" class="form-control" id="hora_plan1" name="hora_plan1" value="">
       
             </div>
-            </div>            
-    	        		    
-    	        		    
-    	        		    <div class="col-xs-12 col-md-12 col-md-12 " style="margin-top:15px;  text-align: center; ">
-                	   		    <div class="form-group" id="bt_Agregar">
-            	                  <button  id="Agregar" name="Agregar" class="btn btn-primary" onclick="AgregarTarea()">Agregar</button>
-        	                    </div>
-    	        		    </div>
-    	        		    
-    	        		    <div id="Eliminar_div" style ="display:none">
+            </div>
+            
+            <div id="Eliminar_div" style ="display:none">
         <div class="col-xs-12 col-md-3 col-lg-3">
         <label for="id_tarea_respaldos" class="control-label">ID Tarea:</label>
         <select name="id_tarea1" id="id_tarea1"  class="form-control" >
@@ -146,7 +128,29 @@
     							        <?php } ?>
     								   </select> 
     								  </div>
-    	                  </div> 
+    	                  </div>   
+                       
+        
+        <br>
+        <br>
+       
+       
+			    <div class="col-xs-12 col-md-12 col-md-12 " style="margin-top:15px;  text-align: center; ">
+                	   		    <div class="form-group" id="bt_Editar">
+            	                  <button  id="Editar" name="Editar" class="btn btn-success" onclick="EditarTarea()">Editar</button>
+        	                    </div>
+    	        		    </div>
+    	        		    
+    	        	          
+    	        		    
+    	        		    
+    	        		    <div class="col-xs-12 col-md-12 col-md-12 " style="margin-top:15px;  text-align: center; ">
+                	   		    <div class="form-group" id="bt_Agregar">
+            	                  <button  id="Agregar" name="Agregar" class="btn btn-primary" onclick="AgregarTarea()">Agregar</button>
+        	                    </div>
+    	        		    </div>
+    	        		    
+    	        		    
     	                  
     	                  <div class="col-xs-12 col-md-12 col-md-12 " style="margin-top:15px;  text-align: center; ">
                 	   		    <div class="form-group" id="bt_Eliminar">

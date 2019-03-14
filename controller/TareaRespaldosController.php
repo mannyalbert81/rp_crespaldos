@@ -276,7 +276,7 @@ class TareaRespaldosController extends ControladorBase{
             $tablas =   "public.tareas_respaldos";
             $where = "1=1";
             
-            $id="base_datos.id_base_datos";
+            $id="tareas_respaldos.id_tareas_respaldos";
                                   
             $resultSet = $tarea_respaldos->getCondicionesDesc($columnas, $tablas, $where, $id);
             
