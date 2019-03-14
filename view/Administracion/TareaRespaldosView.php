@@ -34,7 +34,7 @@
           <?php include("view/modulos/head.php"); ?>	
         
       </header>
-    
+    <!-- 
        <aside class="main-sidebar">
         <section class="sidebar">
          <?php include("view/modulos/menu_profile.php"); ?>
@@ -42,7 +42,7 @@
          <?php include("view/modulos/menu.php"); ?>
         </section>
       </aside>
-
+ -->
   <div class="content-wrapper">
     <section class="content-header">
       <h1>
@@ -50,8 +50,8 @@
         <small><?php echo $fecha; ?></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo $helper->url("Usuarios","Bienvenida"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Permisos Roles</li>
+        <li><a href="javascript:void(0);"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Respaldo</li>
       </ol>
     </section>
 
@@ -62,7 +62,10 @@
         <div class="box-header with-border">
           <h3 class="box-title">Tareas de Respaldo</h3>
           <div class="box-tools pull-right">
-          
+           <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
             
           </div>
         </div>
@@ -119,81 +122,67 @@
             </div>
             
             <div id="Eliminar_div" style ="display:none">
-        <div class="col-xs-12 col-md-3 col-lg-3">
-        <label for="id_tarea_respaldos" class="control-label">ID Tarea:</label>
-        <select name="id_tarea1" id="id_tarea1"  class="form-control" >
-                                      <option value="" selected="selected">--Seleccione--</option>
+                                        <div class="col-xs-12 col-md-3 col-lg-3">
+                                        <label for="id_tarea_respaldos" class="control-label">ID Tarea:</label>
+                                        <select name="id_tarea1" id="id_tarea1"  class="form-control" >
+                                            <option value="" selected="selected">--Seleccione--</option>
     									<?php  foreach($resultSet as $res) {?>
     										<option value="<?php echo $res->id_tareas_respaldos; ?>"><?php echo $res->id_tareas_respaldos; ?> </option>
     							        <?php } ?>
     								   </select> 
     								  </div>
-    	                  </div>   
+    	    </div>   
                        
         
-        <br>
-        <br>
        
        
-			    <div class="col-xs-12 col-md-12 col-md-12 " style="margin-top:15px;  text-align: center; ">
-                	   		    <div class="form-group" id="bt_Editar">
-            	                  <button  id="Editar" name="Editar" class="btn btn-success" onclick="EditarTarea()">Editar</button>
-        	                    </div>
+            <div class="row">
+			               
+			                <div class="col-xs-12 col-md-12 col-lg-12" style="text-align:center; margin-top: 20px;">
+                	   		   
+            	                  <button  id="bt_Editar" name="Editar" class="btn btn-success" onclick="EditarTarea()"> <i class="glyphicon glyphicon-edit"></i> Editar</button>
+        	                   
+        	                     
+            	                  <button  id="bt_Agregar" name="Agregar" class="btn btn-primary" onclick="AgregarTarea()"><i class="glyphicon glyphicon-plus"></i> Agregar</button>
+        	                   
+        	                     
+            	                  <button  id="bt_Eliminar" name="Eliminar" class="btn btn-danger" onclick="EliminarTarea()"><i class="glyphicon glyphicon-trash"></i> Eliminar</button>
+        	                    
     	        		    </div>
     	        		    
-    	        	          
-    	        		    
-    	        		    
-    	        		    <div class="col-xs-12 col-md-12 col-md-12 " style="margin-top:15px;  text-align: center; ">
-                	   		    <div class="form-group" id="bt_Agregar">
-            	                  <button  id="Agregar" name="Agregar" class="btn btn-primary" onclick="AgregarTarea()">Agregar</button>
-        	                    </div>
-    	        		    </div>
-    	        		    
-    	        		    
-    	                  
-    	                  <div class="col-xs-12 col-md-12 col-md-12 " style="margin-top:15px;  text-align: center; ">
-                	   		    <div class="form-group" id="bt_Eliminar">
-            	                  <button  id="Eliminar" name="Eliminar" class="btn btn-danger" onclick="EliminarTarea()">Eliminar</button>
-        	                    </div>
-    	        		    </div>
-			  
-			  
-			  
-			  <div id="mensaje_id_grupos" class="errores"></div>
-			  <div id="tabla_tareas"></div>
-			  
+    	    </div>
 			
 			  
+			  <div id="mensaje_id_grupos" class="errores" style="margin-top: 20px;"></div>
+			  <div id="tabla_tareas" style="margin-top: 20px;"></div>
+			  
+			 				
+			  
 	   </div>
-        
-        
-      </div>
+       </div>
     </section>
     
     <section class="content">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Detalles de Respaldo</h3>
+          <h3 class="box-title">Respaldos Generados</h3>
           <div class="box-tools pull-right">
-          
+           <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
             
           </div>
         </div>
 
         <div class="box-body">
-        
-			  
-			<div id="tabla_detalles"></div>
-			
-			</div>
-			  </div>
+        	<div id="tabla_detalles"></div>
+		</div>
+	  </div>
 	  
     </section>
     
     
-    
-     
     
   </div>
  

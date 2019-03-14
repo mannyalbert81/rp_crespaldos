@@ -18,7 +18,7 @@ class Conectar{
         
         if($this->driver=="pgsql" || $this->driver==null){
        
-        	$con = pg_connect("host=localhost port=5432 dbname=respaldos user=postgres password=capremci ");
+        	$con = pg_connect("host=192.168.1.231 port=5432 dbname=respaldos user=postgres password=Programadores2018 ");
         	if(!$con){
         		echo "No se puedo Conectar a la Base";
         		exit();
@@ -39,7 +39,7 @@ class Conectar{
         	
         	try
         	{
-        		$pdo = new PDO('pgsql:host=localhost;port=5432;dbname=respaldos', 'postgres', 'capremci' );
+        		$pdo = new PDO('pgsql:host=192.168.1.231;port=5432;dbname=respaldos', 'postgres', 'Programadores2018' );
             	
             
          

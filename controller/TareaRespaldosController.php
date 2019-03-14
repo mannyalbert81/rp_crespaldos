@@ -83,12 +83,11 @@ class TareaRespaldosController extends ControladorBase{
                 
                 
                 $html.='<div class="col-lg-12 col-md-12 col-xs-12">';
-                $html.='<section style="height:200px; overflow-y:scroll;">';
+                $html.='<section style="height:300px; overflow-y:scroll;">';
                 $html.= "<table id='tabla_tareas_respaldos' class='tablesorter table table-striped table-bordered dt-responsive nowrap dataTables-example'>";
                 $html.= "<thead>";
                 $html.= "<tr>";
                 $html.='<th style="text-align: left;  font-size: 14px;">ID Tarea</th>';
-                $html.='<th style="text-align: left;  font-size: 14px;">ID BD</th>';
                 $html.='<th style="text-align: left;  font-size: 14px;">Nombre BD</th>';
                 $html.='<th style="text-align: left;  font-size: 14px;">Ubicación Archivo</th>';
                 $html.='<th style="text-align: left;  font-size: 14px;">Hora Planificada</th>';
@@ -100,7 +99,6 @@ class TareaRespaldosController extends ControladorBase{
                 {
                     $html.='<tr>';
                     $html.='<td style="font-size: 12px;">'.$res->id_tareas_respaldos.'</td>';
-                    $html.='<td style="font-size: 12px;">'.$res->id_base_datos.'</td>';
                     $html.='<td style="font-size: 12px;">'.$res->nombre_base_datos.'</td>';
                     $html.='<td style="font-size: 12px;">'.$res->path_tareas_respaldos.'</td>';
                     $html.='<td style="font-size: 12px;">'.$res->hora_tareas_respaldos.'</td>';
@@ -148,14 +146,14 @@ class TareaRespaldosController extends ControladorBase{
             {
                                
                 $html.='<div class="col-lg-12 col-md-12 col-xs-12">';
-                $html.='<section style="height:425px; overflow-y:scroll;">';
+                $html.='<section style="height:300px; overflow-y:scroll;">';
                 $html.= "<table id='tabla_tareas_respaldos' class='tablesorter table table-striped table-bordered dt-responsive nowrap dataTables-example'>";
                 $html.= "<thead>";
                 $html.= "<tr>";
                 $html.='<th style="text-align: left;  font-size: 14px;">Nombre BD</th>';
                 $html.='<th style="text-align: left;  font-size: 14px;">Fecha de Inicio</th>';
                 $html.='<th style="text-align: left;  font-size: 14px;">Fecha de Fin</th>';
-                $html.='<th style="text-align: left;  font-size: 14px;">Ubicaci�n de Archivo</th>';
+                $html.='<th style="text-align: left;  font-size: 14px;">Ubicación de Archivo</th>';
                 $html.='<th style="text-align: left;  font-size: 14px;">Peso de Archivo (Bytes)</th>';
                 $html.='</tr>';
                 $html.='</thead>';
