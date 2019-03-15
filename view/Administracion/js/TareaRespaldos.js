@@ -36,6 +36,33 @@ function cargarDetalles()
 	});	
 }
 
+function CargarValoresEditar()
+{
+	
+	var idtarea = $("#id_tarea").val();
+	
+	if (idtarea!="")
+		{
+	$.ajax({
+	    url: 'index.php?controller=TareaRespaldos&action=RegresarValor',
+	    type: 'POST',
+	    data: {
+	    	   id_tarea : idtarea,
+	    },
+	})
+	.done(function(x) {
+		var array = JSON.parse(x);
+		
+		$("#nombre_bd").val(array[0].nombre_base_datos);
+		$("#file_path").val(array[0].path_tareas_respaldos);
+		$("#hora_plan").val(array[0].hora_tareas_respaldos);
+	})
+	.fail(function() {
+	    console.log("error");
+	});
+	}
+	}
+
 function EditarTarea()
 {
 	var x = document.getElementById("Editar_div");

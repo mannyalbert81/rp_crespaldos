@@ -74,7 +74,7 @@
         <div id="Editar_div" style ="display:none">
         <div class="col-xs-12 col-md-3 col-lg-3">
         <label for="id_tarea_respaldos" class="control-label">ID Tarea:</label>
-        <select name="id_tarea" id="id_tarea"  class="form-control" >
+        <select name="id_tarea" id="id_tarea"  class="form-control" onchange=" CargarValoresEditar()" >
                                       <option value="" selected="selected">--Seleccione--</option>
     									<?php  foreach($resultSet as $res) {?>
     										<option value="<?php echo $res->id_tareas_respaldos; ?>"><?php echo $res->id_tareas_respaldos; ?> </option>
@@ -83,12 +83,7 @@
     								  </div>
     								  <div class="col-xs-12 col-md-3 col-lg-3">
         <label for="nombre_bd" class="control-label">Nombre BD:</label>
-        <select name="nombre_bd" id="nombre_bd"  class="form-control" >
-                                      <option value="" selected="selected">--Seleccione--</option>
-    									<?php  foreach($resultBD as $res) {?>
-    										<option value="<?php echo $res->nombre_base_datos; ?>"><?php echo $res->nombre_base_datos; ?> </option>
-    							        <?php } ?> 
-    							         </select>
+        <input type="text" class="form-control" id="nombre_bd" name="nombre_bd" value="">
         </div>
         <div class="col-xs-12 col-md-3 col-lg-3">
         <label for="file_path" class="control-label">Ubicación de Archivo:</label>
@@ -139,15 +134,19 @@
             <div class="row">
 			               
 			                <div class="col-xs-12 col-md-12 col-lg-12" style="text-align:center; margin-top: 20px;">
+			                <br>
+			                </div>	
+			                <div class="col-xs-12 col-md-12 col-lg-12" style="text-align:center; margin-top: 20px;">
                 	   		   
-            	                  <button  id="bt_Editar" name="Editar" class="btn btn-success" onclick="EditarTarea()"> <i class="glyphicon glyphicon-edit"></i> Editar</button>
-        	                   
-        	                     
+                	   		   <div id="Editar" class="col-xs-12 col-md-12 col-lg-1" style="text-align:center; margin-left: 350px"; >
+            	                  <button  id="bt_Editar" name="Editar" class="btn btn-success" onclick="EditarTarea()"> <i class="glyphicon glyphicon-edit"></i> Editar&ensp;&nbsp;</button>
+        	                   </div>
+        	                   <div id="Agregar" class="col-xs-12 col-md-1 col-lg-1">
             	                  <button  id="bt_Agregar" name="Agregar" class="btn btn-primary" onclick="AgregarTarea()"><i class="glyphicon glyphicon-plus"></i> Agregar</button>
-        	                   
-        	                     
+        	                   </div>
+        	                   <div id="Eliminar" class="col-xs-12 col-md-12 col-lg-1">
             	                  <button  id="bt_Eliminar" name="Eliminar" class="btn btn-danger" onclick="EliminarTarea()"><i class="glyphicon glyphicon-trash"></i> Eliminar</button>
-        	                    
+        	                   </div>
     	        		    </div>
     	        		    
     	    </div>
@@ -199,7 +198,7 @@
     <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="view/bootstrap/otros/inputmask_bundle/jquery.inputmask.bundle.js"></script>  
-    <script src="view/Administracion/js/TareaRespaldos.js?1.2"></script>
+    <script src="view/Administracion/js/TareaRespaldos.js?1.3"></script>
 	
 	
   </body>

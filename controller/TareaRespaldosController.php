@@ -17,15 +17,7 @@ class TareaRespaldosController extends ControladorBase{
         
         
         $tarea_respaldos = new TareaRespaldosModel();
-        
-        $base_datos = new BaseDatosModel();
-        
-        $columnasbd = "base_datos.nombre_base_datos";
-        
-        $idbd = "base_datos.id_base_datos";
-        
-        $tablabd = "public.base_datos";
-        
+                 
                    
         $columnas = "tareas_respaldos.id_tareas_respaldos,
                      tareas_respaldos.id_base_datos,
@@ -37,14 +29,12 @@ class TareaRespaldosController extends ControladorBase{
         $where = "1=1";
         
         $id="tareas_respaldos.id_tareas_respaldos";
-        
-        $resultBD = $base_datos->getCondiciones($columnasbd, $tablabd, $where, $idbd);
-        
+                
         $resultSet = $tarea_respaldos->getCondiciones($columnas, $tablas, $where, $id);
               
                 
         $this->view_Administracion("TareaRespaldos",array(
-            "resultSet"=>$resultSet, "resultBD"=>$resultBD));
+            "resultSet"=>$resultSet));
         
     }
     
@@ -292,86 +282,31 @@ class TareaRespaldosController extends ControladorBase{
             
             $tarea_respaldos->deleteBy($columna, $id_tarea);
         }
-       
-    
-    
         
+        public function RegresarValor()
+        {
+            session_start();
+            $tarea_respaldos = new TareaRespaldosModel();
+            
+            $id_tarea = $_POST['id_tarea'];
+            $columnas = "base_datos.nombre_base_datos,
+                     tareas_respaldos.path_tareas_respaldos,
+                     tareas_respaldos.hora_tareas_respaldos";
+            $tablas =   "public.tareas_respaldos INNER JOIN public.base_datos
+                     ON tareas_respaldos.id_base_datos = base_datos.id_base_datos";
+            $where = "tareas_respaldos.id_tareas_respaldos=".$id_tarea;
+            
+            $id="tareas_respaldos.id_tareas_respaldos";
+            
+            $resultSet = $tarea_respaldos->getCondiciones($columnas, $tablas, $where, $id);
+            
+            echo json_encode($resultSet);
+        }
         
-        
-        
-        
-        
-        
- 
-    
-    
-    
 }
 
 
 
-/*class TareaRespaldosController extends ControladorBase{
-    
-    public function __construct() {
-        parent::__construct();
-    }
-    
-    public function index()
-    {
-        session_start();
-        /*$tarea_respaldos = new TareaRespaldosModel();
-        
-        $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
-        
-        if($action == 'ajax')
-        {
-        
-        $columnas = "tareas_respaldos.id_tareas_respaldos,
-                     tareas_respaldos.id_base_datos,
-                     base_datos.nombre_base_datos,
-                     tareas_respaldos.path_tareas_respaldos,
-                     tareas_respaldos.hora_tareas_respaldos";
-        $tablas =   "public.tareas_respaldos INNER JOIN public.base_datos
-                     ON tareas_respaldos.id_base_datos = base_datos.id_base_datos";
-        $where = "1=1";
-        
-        $id="tareas_respaldos.id_base_datos";
-        
-        $resultset = $tarea_respaldos->getCondiciones($columnas, $tablas, $where, $id);
-        
-        $html.='<div class="col-lg-12 col-md-12 col-xs-12">';
-        $html.='<section style="height:425px; overflow-y:scroll;">';
-        $html.= "<table id='tabla_tareas_respaldos' class='tablesorter table table-striped table-bordered dt-responsive nowrap dataTables-example'>";
-        $html.= "<thead>";
-        $html.= "<tr>";
-        $html.='<th style="text-align: left;  font-size: 12px;">ID Tarea</th>';
-        $html.='<th style="text-align: left;  font-size: 12px;">ID BD</th>';
-        $html.='<th style="text-align: left;  font-size: 12px;">Nombre BD</th>';
-        $html.='<th style="text-align: left;  font-size: 12px;">Ubicación Archivo</th>';
-        $html.='<th style="text-align: left;  font-size: 12px;">Hora Planificada</th>';
-        $html.='</tr>';
-        $html.='</thead>';
-        $html.='<tbody>';
-        
-        foreach ($resultSet as $res)
-        {
-            $html.='<tr>';
-            $html.='<td style="font-size: 11px;">'.$res->id_tareas_respaldos.'</td>';
-            $html.='<td style="font-size: 11px;">'.$res->id_base_datos.'</td>';
-            $html.='<td style="font-size: 11px;">'.$res->nombre_base_datos.'</td>';
-            $html.='<td style="font-size: 11px;">'.$res->path_tareas_respaldos.'</td>';
-            $html.='<td style="font-size: 11px;">'.$res->hora_tareas_respaldos.'</td>';
-            $html.='</tr>';
-        }
-       
-        $html.='</tbody>';
-        $html.='</table>';
-        $html.='</section></div>';
-        
-        echo $html;
-        die();
-        }
-    }
-}*/
+
 
 ?>
