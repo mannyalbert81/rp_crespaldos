@@ -17,6 +17,7 @@ class TareaRespaldosController extends ControladorBase{
         
         
         $tarea_respaldos = new TareaRespaldosModel();
+        $base_datos = new BaseDatosModel();
                  
                    
         $columnas = "tareas_respaldos.id_tareas_respaldos,
@@ -29,12 +30,19 @@ class TareaRespaldosController extends ControladorBase{
         $where = "1=1";
         
         $id="tareas_respaldos.id_tareas_respaldos";
+        
+        $columnasbd = "base_datos.nombre_base_datos";
+        
+        $tablasbd = "public.base_datos";
+        
+        $idbd="base_datos.id_base_datos";
                 
         $resultSet = $tarea_respaldos->getCondiciones($columnas, $tablas, $where, $id);
-              
+        
+        $resultBD = $base_datos->getCondiciones($columnasbd, $tablasbd, $where, $idbd);
                 
         $this->view_Administracion("TareaRespaldos",array(
-            "resultSet"=>$resultSet));
+            "resultSet"=>$resultSet, "resultBD"=>$resultBD));
         
     }
     
