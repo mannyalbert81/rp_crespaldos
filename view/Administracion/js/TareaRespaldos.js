@@ -230,3 +230,36 @@ function EliminarTarea()
 	    z.style.display = "none";
 	  }	
 }
+
+
+function Cancelar()
+{
+ 
+	$("#nombre_bd1").val("");
+	$("#file_path1").val("");
+	$("#hora_plan1").val("");
+	$("#id_tarea1").val("");
+	$("#id_tarea").val("");
+	$("#nombre_bd").val("");
+	$("#file_path").val("");
+	$("#hora_plan").val("");
+	var x1 = document.getElementById("Eliminar_div");
+	var y1 = document.getElementById("Agregar_div");
+	var z1 = document.getElementById("Editar_div");
+	var x = document.getElementById("bt_Editar");
+	var y = document.getElementById("bt_Agregar");
+	var z = document.getElementById("bt_Eliminar");
+	
+	    x1.style.display = "none";
+	 
+	    y1.style.display = "none";
+
+	    z1.style.display = "none";
+
+	    x.style.display = "block";
+	
+	    y.style.display = "block";
+	
+	    z.style.display = "block";
+	 
+}
